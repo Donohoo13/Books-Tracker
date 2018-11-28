@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BooksShort from './BooksShort';
 import AddBook from './AddBook';
+import Layout from './Layout'
+import Search from './Search'
 
 import '../CSS/Books.css'
 
@@ -47,11 +49,13 @@ class Books extends Component {
 
         return(
             <div>
-            <form>
+            <Layout header="Book Tracker"/>
+            {/* <form>
                 <input type="text" placeholder="search" 
                 onChange={event => this.setState({search: event.target.value})}/>
                 <button onClick={this.searching} value="Search">Search</button>
-            </form>
+            </form> */}
+            <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/>
             <BooksShort refresher={this.refresh} data={this.state.books}/>
             <AddBook refresher={this.refresh} />
             </div>

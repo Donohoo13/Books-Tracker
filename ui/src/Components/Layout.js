@@ -9,7 +9,6 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import Books from './Books';
 
 const styles = theme => ({
   root: {
@@ -81,7 +80,7 @@ function Layout(props) {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-            Material-UI
+            Book Tracker
           </Typography>
           <div className={classes.grow} />
           <div className={classes.search}>
@@ -94,12 +93,11 @@ function Layout(props) {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              this.props.search
+              // inputComponent={Search}
             />
           </div>
         </Toolbar>
       </AppBar>
-      <Books/>
     </div>
   );
 }
