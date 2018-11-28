@@ -12,7 +12,7 @@ getBooks = async (req, res) => {
 
 getBooksByName = async (req, res) => {
     let result = await Books.find({}).then(results => results)
-    result = result.filter(book => book.title.toLowerCase()
+    result = result.filter(book => book.title.toLowerCase().replace(/\s/g, "")
     .includes(req.params.title.toLowerCase()))
     // console.log(result)
     send(res, 200, result)

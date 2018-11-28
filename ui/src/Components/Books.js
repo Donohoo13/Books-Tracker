@@ -45,17 +45,21 @@ class Books extends Component {
         await this.getBooks()
     }
 
+    example = () => (
+        <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/>
+      )
+
     render() {
 
         return(
             <div>
-            <Layout header="Book Tracker"/>
+            <Layout header="Book Tracker" change={data => this.setState({books:data})} search={this.example}/>
             {/* <form>
                 <input type="text" placeholder="search" 
                 onChange={event => this.setState({search: event.target.value})}/>
                 <button onClick={this.searching} value="Search">Search</button>
             </form> */}
-            <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/>
+            {/* <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/> */}
             <BooksShort refresher={this.refresh} data={this.state.books}/>
             <AddBook refresher={this.refresh} />
             </div>
