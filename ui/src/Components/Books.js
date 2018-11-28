@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import BooksShort from './BooksShort';
 import AddBook from './AddBook';
-import Layout from './Layout'
-import Search from './Search'
+import Layout from './Layout';
+import Search from './Search';
+import Modal from './Modal';
 
 import '../CSS/Books.css'
 
@@ -60,8 +61,11 @@ class Books extends Component {
                 <button onClick={this.searching} value="Search">Search</button>
             </form> */}
             {/* <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/> */}
-            <BooksShort refresher={this.refresh} data={this.state.books}/>
+            <Modal title="Add Show" btnText="Add New">
             <AddBook refresher={this.refresh} />
+            </Modal>
+            <BooksShort refresher={this.refresh} data={this.state.books}/>
+            {/* <AddBook refresher={this.refresh} /> */}
             </div>
         );
     }
