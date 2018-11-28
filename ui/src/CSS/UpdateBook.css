@@ -1,0 +1,25 @@
+#currentStatus {
+    text-decoration: none;
+    font-size: 10px;
+    margin-top: -2em;
+    margin-bottom: 1em;
+}
+
+.updateShow {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    border: solid black;
+    padding: .6em;
+}
+
+.input {
+    padding: 1em;
+    margin: .5em;
+}
+
+#header {
+    font-size: 25px;
+}
