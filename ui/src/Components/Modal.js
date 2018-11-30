@@ -8,12 +8,23 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    // marginTop             : '-2em',
+    transform             : 'translate(-50%, -50%)',
+    maxHeight             : '80%',
+    minWidth              : '50%'
   }
 };
 
 const contentStyle = {
     'textAlign': 'center'
+}
+
+const button = {
+    'display': 'flex',
+    // 'justifyItems': 'flexEnd',
+    // 'marginBottom': '-1em',
+    'marginLeft': '-1.3em',
+    'marginTop': '-1.2em',
 }
 
 export default class extends Component {
@@ -44,10 +55,8 @@ export default class extends Component {
           contentLabel="Example Modal"
         >
         <div style={contentStyle}>
-          <span>
-            <h1>{this.props.title}</h1>
-            <button onClick={this.closeModal}>close</button>
-          </span>
+        {/* <h2 style={title}>{this.props.title}</h2> */}
+            <button style={button} onClick={this.closeModal}>X</button>
           {this.props.children}
         </div>
         </Modal>

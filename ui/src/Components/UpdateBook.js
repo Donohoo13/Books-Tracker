@@ -34,13 +34,13 @@ export default class UpdateBook extends Component {
                     <input className="input" type="text" placeholder="Genre" value={this.state.genre}
                     onChange={event => this.setState({genre: event.target.value})}/>
                     <label name="bookStatus">Book Status:</label> <br/>
-                    <span id="currentStatus">{`Current Status: ${this.props.status}`}</span>
+                    {/* <span id="currentStatus">{`Current Status: ${this.props.status}`}</span> */}
                     <div className="radioBtns">
-                        <input type="radio" name="status" value="Want to Read" 
+                        <input type="radio" name="status" value="Want to Read" defaultChecked={this.state.status === "Want to Read"}
                         onChange={event => this.setState({status: event.target.value})} required/>Want to read
-                        <input type="radio" name="status" value="Have Read" 
+                        <input type="radio" name="status" value="Have Read" defaultChecked={this.state.status === "Have Read"}
                         onChange={event => this.setState({status: event.target.value})}/>Have read
-                        <input type="radio" name="status" value="Not Interested" 
+                        <input type="radio" name="status" value="Not Interested" defaultChecked={this.state.status === "Not Interested"}
                         onChange={event => this.setState({status: event.target.value})}/>Not Interested
                     </div>
                     <input className="input" type="text" placeholder="Image URL" value={this.state.image}
