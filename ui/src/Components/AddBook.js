@@ -13,7 +13,7 @@ export default class AddBook extends Component {
 
     addBook = async (evt) => {
         // evt.preventDefault()
-        await fetch('http://localhost:4000/books', {
+        await fetch('https://api-wdkvqhjhgy.now.sh/books', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(this.state), // data can be `string` or {object}!
         // mode: 'cors',

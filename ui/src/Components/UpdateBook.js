@@ -12,7 +12,7 @@ export default class UpdateBook extends Component {
 
     updateBook = async (evt) => {
         // evt.preventDefault()
-        await fetch('http://localhost:4000/books/id/' + this.props.id, {
+        await fetch('https://api-wdkvqhjhgy.now.sh/books/id/' + this.props.id, {
         method: 'PUT', // or 'POST'
         body: JSON.stringify(this.state), // data can be `string` or {object}!
         // mode: 'cors',

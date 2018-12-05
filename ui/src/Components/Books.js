@@ -28,7 +28,7 @@ class Books extends Component {
         console.log("search: ", this.state.search)
         if( this.state.search === '') {return this.getBooks()}
         else{
-        await fetch('http://localhost:4000/books/title/' + this.state.search)
+        await fetch('https://api-wdkvqhjhgy.now.sh/books/title/' + this.state.search)
         .then(res => res.json())
         .then(data => this.setState({books: data}))
         }
