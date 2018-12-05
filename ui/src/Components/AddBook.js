@@ -12,7 +12,7 @@ export default class AddBook extends Component {
     }
 
     addBook = async (evt) => {
-        evt.preventDefault()
+        // evt.preventDefault()
         await fetch('http://localhost:4000/books', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(this.state), // data can be `string` or {object}!
@@ -54,7 +54,7 @@ export default class AddBook extends Component {
                     </div>
                     <input className="input" type="text" placeholder="Image URL" required
                     onChange={event => this.setState({image: event.target.value})}/>
-                    <input className="input" type="submit" value="Add Book"/>
+                    <input className="input" type="submit" onClick={this.props.close} value="Add Book"/>
                 </form>
             </div>
         );

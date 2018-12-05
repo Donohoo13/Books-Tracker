@@ -1,0 +1,11 @@
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+.bookMap {
+    max-width: 8em;
+}

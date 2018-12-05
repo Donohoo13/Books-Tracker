@@ -3,13 +3,16 @@ import DeleteBook from './DeleteBook';
 import UpdateBook from './UpdateBook';
 import Modal from './Modal';
 
+import '../CSS/BooksShort.css'
+
 
 class BooksShort extends Component {
   
     render() {
         let books = this.props.data.map((book) => {
             return(
-                <div key={book._id}>
+                <div>
+                <div className="bookMap" key={book._id}>
                     <div>{book.title}</div>
                     <img alt={book._id} className="image" src={book.image}/>
                     <DeleteBook refresher={this.props.refresher} data={book._id} />
@@ -18,10 +21,11 @@ class BooksShort extends Component {
                     status={book.status} image={book.image} />
                     </Modal>
                 </div>
+                </div>
             );
         })
         return(
-            <span>{books}</span>
+            <div className="books">{books}</div>
         );
     }
 }
