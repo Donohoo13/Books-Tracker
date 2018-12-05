@@ -45,6 +45,11 @@ export default class extends Component {
   }
  
   render() {
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        closeModal: () => this.setState({ modalIsOpen: false })
+      });
+    });
     return (
       <div>
         <button onClick={this.openModal}>{this.props.btnText}</button>
@@ -53,11 +58,12 @@ export default class extends Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
+          // closeModal={this.closeModal}
         >
         <div style={contentStyle}>
-        {/* <h2 style={title}>{this.props.title}</h2> */}
             <button style={button} onClick={this.closeModal}>X</button>
-          {this.props.children}
+           {/* Gives the ability to put multiple full components as content of modal */}
+          {children} 
         </div>
         </Modal>
       </div>

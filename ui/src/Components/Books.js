@@ -13,28 +13,12 @@ class Books extends Component {
         search: '',
     }
 
+//  Refreshes getBooks without refreshing the page.
     refresh = (event) => {
-        console.log('ho ho ho')
-        this.search()
-    }
-
-    searching = (event) => {
-        event.preventDefault()
-        this.search()
-    }
-
-    search = async (event) => {
-        // event.preventDefault()
-        console.log("search: ", this.state.search)
-        if( this.state.search === '') {return this.getBooks()}
-        else{
-        await fetch('https://api-wdkvqhjhgy.now.sh/books/title/' + this.state.search)
-        .then(res => res.json())
-        .then(data => this.setState({books: data}))
-        }
-        console.log('search results: ', this.state.search)
+        this.getBooks()
     }
     
+//  Gets all books from database and posts them to the DOM
     getBooks = async () => {
         await fetch('https://api-wdkvqhjhgy.now.sh/books')
         .then(res => res.json())
@@ -42,11 +26,13 @@ class Books extends Component {
         console.log("state", this.state.books)
         }
 
+//  Manipulating DOM to render with the books pull from DB
     componentDidMount = async () => {
         await this.getBooks()
     }
 
-    example = () => (
+//  Passing props through to add search bar to Layout page and set state correctly.
+    search = () => (
         <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/>
       )
 
@@ -54,15 +40,9 @@ class Books extends Component {
 
         return(
             <div>
-            <Layout header="Book Tracker" change={data => this.setState({books:data})} search={this.example}/>
-            {/* <form>
-                <input type="text" placeholder="search" 
-                onChange={event => this.setState({search: event.target.value})}/>
-                <button onClick={this.searching} value="Search">Search</button>
-            </form> */}
-            {/* <Search books={this.state.books} getBook={this.getBooks} set={data => this.setState({books: data})}/> */}
+            <Layout header="Book Tracker" change={data => this.setState({books:data})} search={this.search}/>
             <Modal title="Add Show" btnText="Add New">
-            <AddBook /* refresher={this.refresh} */ />
+            <AddBook refresher={this.refresh} closeModal={this.closeModal}/>
             </Modal>
             <BooksShort refresher={this.refresh} data={this.state.books}/>
             </div>

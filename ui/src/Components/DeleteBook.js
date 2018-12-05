@@ -7,7 +7,7 @@ export default class DeleteBook extends Component {
 
     deleteBook = async (event) => {
         // event.preventDefault()
-        await fetch('https://api-wdkvqhjhgy.now.sh/books/id/' + this.props.data, {
+        await fetch('https://api-mzmhuwybvg.now.sh/books/id/' + this.props.data, {
         method: 'DELETE', // or 'PUT'
         // mode: 'cors',
       }).then(res => res.json())

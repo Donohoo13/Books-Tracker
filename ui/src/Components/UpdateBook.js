@@ -11,14 +11,17 @@ export default class UpdateBook extends Component {
     }
 
     updateBook = async (evt) => {
-        // evt.preventDefault()
-        await fetch('https://api-wdkvqhjhgy.now.sh/books/id/' + this.props.id, {
+        evt.preventDefault()
+        await fetch('https://api-mzmhuwybvg.now.sh/books/id/' + this.props.id, {
         method: 'PUT', // or 'POST'
         body: JSON.stringify(this.state), // data can be `string` or {object}!
         // mode: 'cors',
       }).then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
       .catch(error => console.error('Error:', error));
+      console.log(this.state)
+      this.props.refresher()
+      this.props.closeModal()
     }
     
     render() {

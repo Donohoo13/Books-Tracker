@@ -16,7 +16,7 @@ class Search extends Component {
             return this.props.getBook().then(console.log('search results', this.props.books))
         }
         else{
-            const result = await fetch('http://localhost:4000/books/title/' + this.state.search.replace(/\s/, ""))
+            const result = await fetch('https://api-mzmhuwybvg.now.sh/books/title/' + this.state.search.replace(/\s/, ""))
             .then(res => res.json())
             .then(data => data)
             console.log('data:', result)

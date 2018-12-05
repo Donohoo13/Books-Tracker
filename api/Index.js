@@ -33,6 +33,7 @@ getBooksByStatus = async (req, res) => {
 
 addBook = async (req, res) => {
     const body = await json(req)
+    console.log(body)
     const result = await Books.insert( body ).then(results => results)
     console.log(result)
     send(res, 200, result)

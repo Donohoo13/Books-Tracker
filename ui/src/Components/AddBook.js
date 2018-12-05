@@ -12,23 +12,24 @@ export default class AddBook extends Component {
     }
 
     addBook = async (evt) => {
-        // evt.preventDefault()
-        await fetch('https://api-wdkvqhjhgy.now.sh/books', {
+        evt.preventDefault()
+        await fetch('https://api-mzmhuwybvg.now.sh/books', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(this.state), // data can be `string` or {object}!
         // mode: 'cors',
       }).then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.error('Error:', error))
       this.props.refresher()
-      this.setState({
-        title: '',
-        author: '',
-        genre: '',
-        status: '',
-        image: ''
-    })
-    console.log(this.state)
+      this.props.closeModal()
+    //   this.setState({
+    //     title: '',
+    //     author: '',
+    //     genre: '',
+    //     status: '',
+    //     image: ''
+    // })
+    // console.log(this.state)
     }
     
     render() {
